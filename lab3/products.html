@@ -1,0 +1,433 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacBook Air — Supercharged by M4</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "Segoe UI", sans-serif;
+      background: #000;
+      color: #f5f5f7;
+      line-height: 1.5;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 14px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      background:
+        radial-gradient(circle at 50% 35%, #253348 0%, #080b10 35%, #000 70%);
+    }
+
+    .eyebrow {
+      color: #aaa;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(52px, 9vw, 110px);
+      line-height: .95;
+      letter-spacing: -5px;
+      margin-bottom: 24px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #fff, #8ca9c9, #fff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 22px;
+      color: #b8b8bd;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .25s;
+    }
+
+    .primary {
+      background: #fff;
+      color: #000;
+    }
+
+    .secondary {
+      border: 1px solid #555;
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .85;
+    }
+
+    .macbook {
+      position: relative;
+      width: min(780px, 90vw);
+      margin-top: 75px;
+      perspective: 1000px;
+    }
+
+    .screen {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #111, #25354c);
+      border: 9px solid #777;
+      border-radius: 18px 18px 8px 8px;
+      box-shadow: 0 30px 80px rgba(90,140,220,.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .screen-content {
+      font-size: clamp(30px, 6vw, 65px);
+      font-weight: 700;
+      letter-spacing: -3px;
+      background: linear-gradient(120deg, #fff, #86aee0);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .base {
+      width: 108%;
+      height: 18px;
+      margin-left: -4%;
+      background: linear-gradient(#aaa, #555);
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 20px 30px rgba(0,0,0,.7);
+    }
+
+    section {
+      padding: 130px 8%;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(42px, 6vw, 76px);
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      max-width: 650px;
+      margin: auto;
+      color: #aaa;
+      font-size: 19px;
+    }
+
+    .features {
+      max-width: 1100px;
+      margin: 70px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #151515, #090909);
+      border: 1px solid #292929;
+      border-radius: 25px;
+      padding: 40px 25px;
+      text-align: left;
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 25px;
+    }
+
+    .card h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #999;
+    }
+
+    .performance {
+      background: #f5f5f7;
+      color: #111;
+    }
+
+    .performance .section-subtitle {
+      color: #666;
+    }
+
+    .stats {
+      max-width: 900px;
+      margin: 70px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(45px, 7vw, 80px);
+      letter-spacing: -4px;
+    }
+
+    .stat span {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .cta {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(circle at center, #1c2c42, #000 60%);
+    }
+
+    .price {
+      font-size: 20px;
+      color: #aaa;
+      margin: 20px 0 30px;
+    }
+
+    footer {
+      padding: 35px 8%;
+      color: #777;
+      font-size: 13px;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      nav .links {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .features,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 90px 6%;
+      }
+
+      .macbook {
+        margin-top: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo"> MacBook Air</div>
+
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#performance">Performance</a>
+      <a href="#buy">Buy</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="eyebrow">MacBook Air</div>
+
+      <h1>
+        <span class="gradient">Supercharged.</span>
+      </h1>
+
+      <p>
+        Thin. Light. Powerful. MacBook Air gives you incredible performance
+        with Apple silicon and a battery that keeps going all day.
+      </p>
+
+      <div class="buttons">
+        <a href="#buy" class="btn primary">Buy MacBook Air</a>
+        <a href="#features" class="btn secondary">Learn more</a>
+      </div>
+
+      <div class="macbook">
+        <div class="screen">
+          <div class="screen-content">MacBook Air</div>
+        </div>
+        <div class="base"></div>
+      </div>
+    </section>
+
+
+    <section id="features">
+      <div class="eyebrow">Built for everything</div>
+
+      <h2 class="section-title">Power meets portability.</h2>
+
+      <p class="section-subtitle">
+        Designed to be incredibly capable while staying remarkably thin
+        and light.
+      </p>
+
+      <div class="features">
+
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>Apple Silicon</h3>
+          <p>
+            Fast performance for creative work, coding, productivity,
+            gaming and everyday tasks.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🔋</div>
+          <h3>All-day battery</h3>
+          <p>
+            Work, create and enjoy your favorite content without constantly
+            reaching for a charger.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✨</div>
+          <h3>Liquid Retina</h3>
+          <p>
+            Crisp text, vibrant colors and incredible detail make everything
+            look beautifully immersive.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="performance" class="performance">
+
+      <div class="eyebrow">Performance</div>
+
+      <h2 class="section-title">More speed. Less waiting.</h2>
+
+      <p class="section-subtitle">
+        From everyday productivity to demanding creative workflows,
+        MacBook Air is ready to move at your pace.
+      </p>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>4×</strong>
+          <span>faster than before</span>
+        </div>
+
+        <div class="stat">
+          <strong>18h</strong>
+          <span>battery life</span>
+        </div>
+
+        <div class="stat">
+          <strong>1.2kg</strong>
+          <span>lightweight design</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="buy" class="cta">
+
+      <div class="eyebrow">MacBook Air</div>
+
+      <h2 class="section-title">Your next computer.</h2>
+
+      <p class="price">Starting at $999</p>
+
+      <div class="buttons">
+        <a href="#" class="btn primary"
+           onclick="alert('Thanks for your interest in MacBook Air!')">
+          Buy now
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 MacBook Air concept. This is an independent demo page and is
+    not affiliated with Apple Inc.
+  </footer>
+
+</body>
+</html> -->
