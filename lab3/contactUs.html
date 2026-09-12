@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Product Inquiry</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-color: #1f2937;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --border-color: #d1d5db;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-card, .info-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .info-card h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .info-section {
+            margin-bottom: 25px;
+        }
+
+        .info-section h3 {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-section p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Product Inquiry</h1>
+            <p>Have questions about our products or need a custom quote? Get in touch with our sales team.</p>
+        </div>
+
+        <div class="wrapper">
+            <!-- Inquiry Form -->
+            <div class="form-card">
+                <form action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Acme Corp">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product">Product of Interest *</label>
+                        <select id="product" name="product" required>
+                            <option value="" disabled selected>Select a product...</option>
+                            <option value="product-standard">Standard Edition Software</option>
+                            <option value="product-enterprise">Enterprise Suite</option>
+                            <option value="product-hardware">Hardware Equipment</option>
+                            <option value="product-custom">Custom Solution / Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Inquiry Details *</label>
+                        <textarea id="message" name="message" required placeholder="Please describe your requirements, quantity needed, or specific questions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Inquiry</button>
+                </form>
+            </div>
+
+            <!-- Sidebar Info -->
+            <div class="info-card">
+                <h2>Direct Contact</h2>
+                
+                <div class="info-section">
+                    <h3>Sales Email</h3>
+                    <p>sales@yourcompany.com</p>
+                </div>
+
+                <div class="info-section">
+                    <h3>Phone Support</h3>
+                    <p>+1 (800) 555-0199</p>
+                </div>
+
+                <div class="info-section">
+                    <h3>Business Hours</h3>
+                    <p>Mon - Fri: 9:00 AM - 6:00 PM EST</p>
+                    <span class="badge">Response time: &lt; 24 hours</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
