@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacBook Air — Lean. Mean. M3 machine.</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --surface-color: #1f2833;
+            --text-primary: #ffffff;
+            --text-secondary: #c5c6c7;
+            --accent-cyan: #66fcf1;
+            --accent-glow: rgba(102, 252, 241, 0.2);
+            --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-stack);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 12, 16, 0.7);
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-button {
+            background: var(--accent-cyan);
+            color: #000;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 20px 80px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        /* Interactive Laptop Visual */
+        .display-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .screen-frame {
+            background: #121212;
+            border: 12px solid #2a2a2a;
+            border-radius: 20px 20px 4px 4px;
+            aspect-ratio: 16 / 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen-wallpaper {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1f2833 0%, #0b0c10 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .m3-chip {
+            width: 120px;
+            height: 120px;
+            background: #000;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .m3-chip span {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+
+        .keyboard-base {
+            height: 12px;
+            background: #333;
+            border-radius: 0 0 16px 16px;
+            width: 106%;
+            margin-left: -3%;
+            position: relative;
+        }
+
+        /* Feature Bento Grid */
+        .features-grid {
+            max-width: 1100px;
+            margin: 100px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .bento-card {
+            background: var(--surface-color);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .col-8 { grid-column: span 8; }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+
+        .bento-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .bento-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Comparison Table Section */
+        .compare {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .compare h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .compare-table th, 
+        .compare-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .compare-table th {
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            header { padding: 16px 20px; }
+            .col-8, .col-4, .col-6 { grid-column: span 12; }
+            .hero { padding-top: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">MacBook Air</div>
+        <a href="#order" class="cta-button">Order Now</a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="badge">New M3 Chip</div>
+            <h1>Designed to go places.</h1>
+            <p>Incredibly thin and fast, so you can work, play, or create anywhere.</p>
+            
+            <div class="display-container">
+                <div class="screen-frame">
+                    <div class="screen-wallpaper">
+                        <div class="m3-chip">
+                            <span>M3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="keyboard-base"></div>
+            </div>
+        </section>
+
+        <section class="features-grid">
+            <div class="bento-card col-8">
+                <div>
+                    <h3>11.3mm Thin</h3>
+                    <p>Fits effortlessly into your bag, made with 100% recycled aluminum.</p>
+                </div>
+            </div>
+            
+            <div class="bento-card col-4">
+                <div>
+                    <h3>18 Hrs</h3>
+                    <p>Battery life that keeps up with your day.</p>
+                </div>
+            </div>
+
+            <div class="bento-card col-6">
+                <div>
+                    <h3>Liquid Retina</h3>
+                    <p>Supports 1 billion colors with up to 2x the resolution of comparable PC laptops.</p>
+                </div>
+            </div>
+
+            <div class="bento-card col-6">
+                <div>
+                    <h3>Silent Design</h3>
+                    <p>Fanless architecture means it runs completely noiseless, no matter the workload.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="compare">
+            <h2>Find the right model for you</h2>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>13-inch Model</th>
+                        <th>15-inch Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Display</td>
+                        <td>13.6-inch Liquid Retina</td>
+                        <td>15.3-inch Liquid Retina</td>
+                    </tr>
+                    <tr>
+                        <td>Processor</td>
+                        <td>Apple M3 Chip</td>
+                        <td>Apple M3 Chip</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>2.7 lbs (1.24 kg)</td>
+                        <td>3.3 lbs (1.51 kg)</td>
+                    </tr>
+                    <tr>
+                        <td>Starting Price</td>
+                        <td>$1,099</td>
+                        <td>$1,299</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Apple Inc. All rights reserved. Concept page layout.</p>
+    </footer>
+
+</body>
+</html>
