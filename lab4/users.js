@@ -1,0 +1,15 @@
+//we use in memory database
+let users=[
+{ id:1,name:'Abhay singh',mob:'9219264188',email:'abhay150266@gmail.com'},
+{ id:2,name:'aayush sharma',mob:'7055829486',email:'aayush.4723@gmail.com'},
+
+]
+let nextId=3;
+
+export const getUsers =() =>users;
+
+export const addUsers =(user) =>{
+    user.id=nextId++;
+    users.push(user);
+    return user;
+};
