@@ -11,5 +11,6 @@ export const getUsers =() =>users;
 export const addUsers =(user) =>{
     user.id=nextId++;
     users.push(user);
+    
     return user;
 };
